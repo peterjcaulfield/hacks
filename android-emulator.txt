@@ -1,0 +1,5 @@
+/**
+ * Speed up android emulator eclipse plugin to hardware speeds (making the browser in the AVD actually usable hooray)
+ */
+
+ http://www.developer.com/ws/android/development-tools/haxm-speeds-up-the-android-emulator.html
