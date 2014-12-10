@@ -1,0 +1,37 @@
+# Cross tabulation with pivot tables: rows to columns
+
+For when we want to use the values of one column as the column headings of values in another column.
+Consider the following table 'test':
+
++----+-------+-------+
+| id | col_1 | col_2 |
++----+-------+-------+
+| 1  | foo_a | a_foo |
+| 2  | foo_b | b_foo |
+| 3  | foo_c | c_foo |
++----+-------+-------+
+
+We want to cross tablulate the table data and produce a new table with the values in col_1 as the column names mapped to the 
+the values in col_2.
+
+We can use the following query:
+
+SELECT
+MAX(CASE WHEN (code = 'foo_a') THEN value ELSE NULL END) as foo_a,
+MAX(CASE WHEN (code = 'foo_b') THEN value ELSE NULL END) as foo_b,
+MAX(CASE WHEN (code = 'foo_c') THEN value ELSE NULL END) as foo_c
+FROM test;
+
+which results in:
+
++-------+-------+-------+
+| foo_a | foo_b | foo_c |
++-------+-------+-------+
+| a_foo | b_foo | c_foo |
++-------+-------+-------+
+
+# Cross tabulation with actual aggregates
+
+http://stackoverflow.com/questions/13696613/multi-column-cross-tabulation-aka-pivot
+
+
